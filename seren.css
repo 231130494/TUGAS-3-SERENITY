@@ -32,7 +32,7 @@ html, body{
 }
 
 ::selection{
-  background: ;
+  background:white ;
   color: #FFFF;
 }
 
@@ -77,7 +77,7 @@ html, body{
 
 .wrapper form .field input:focus,
 form .field input:valid{
-  border-color: ;
+  border-color: 1px solid lightgray;
 }
 
 .wrapper form .field label{
