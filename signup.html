@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Signup-page</title>
     <style>
         html{
             width: 100%;
@@ -17,6 +17,7 @@
             margin: 0;
             text-decoration: none;
             box-sizing: border-box;
+            font-family: 'Poppins',sans-serif
         }
         .wrapper{
             width: 380px;
@@ -46,11 +47,11 @@
             cursor: pointer;
             background:lightgray ;
         }
-        .btn{   
+        .btn, .google{   
             background-color: rgb(44, 120, 115);
             color: white;
         }
-        .btn:hover{
+        .btn:hover, .google:hover{
             background-color: rgb(74, 193, 185);
         }
         hr{
@@ -120,25 +121,42 @@
 </head>
 <body>
     <div class="wrapper">
-        <img src="googlev2-removebg-preview.png" alt="">
+        <img src="gambar/googlev2-removebg-preview.png" alt="">
         <button type="button" class="google">Sign up with Google</button>
         <hr>
         <p class="or">OR</p>
-        <form action="#">
+        <form name="dua" action="#" onsubmit="returnvalid">
             <div class="field">
-                <input type="text" required>
+                <input type="text" required id="nama" name="nama">
                 <label>Username</label>
             </div>
             <div class="field">
-                <input type="email" required>
+                <input type="email" required id="email" name="email">
                 <label>E-mail</label>
             </div>
             <div class="field">
-                <input type="password" required>
+                <input type="password" required id="password" name="password">
                 <label>Password</label>
             </div>
             <button type="button" class="btn">Sign-up</button>
         </form>
-    </div>
+        <script>
+            document.querySelector('.btn').addEventListener('click', function(event) {
+                event.preventDefault();
+                let data_user = document.forms['dua']['nama'].value;
+                let data_password = document.forms['dua']['password'].value;
+                let data_email = document.forms['dua']['email'].value;
+
+                if (data_user.trim() === "") {
+                    alert("Nama Tidak Boleh Kosong ... !!!");
+                } else if (data_email.trim() === "") {
+                    alert("Email Tidak Boleh Kosong ... !!!");
+                } else if (data_password.trim() === "") {
+                    alert("Password Tidak Boleh Kosong ... !!!");
+                } else {
+                    window.location.href = "homepage.html";
+                }
+            });
+        </script>
 </body>
 </html>

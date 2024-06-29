@@ -30,7 +30,6 @@
             place-items: center;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
         *{
         margin: 0;
         padding: 0;
@@ -131,6 +130,7 @@
 
         form .content .pass-link{
         color: green;
+        float: right;
         }
 
         form .field input [type="submit"]{
@@ -168,29 +168,48 @@
             width: 50px;
             height: 50px;
         }
+        button {
+            width: 100%;
+            margin: 15px 0;
+            padding: 10px;
+            font-size: 15px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            cursor: pointer;
+            background: lightgray;
+        }
+        
+        .btn{   
+            background-color: rgb(44, 120, 115);
+            color: white;
+        }
+        .btn:hover{
+            background-color: rgb(74, 193, 185);
+        }
     </style>
 </head>
 <body>
     <h2>SERENITY</h2>
     <div class="wrapper">
-       <form action="#">
+       <form name="awal" action="#" onsubmit="returnvalid">
             <div class="field">
-                <input type="text" required>
+                <input type="text" required id="nama" name="nama">
                 <label>Username</label>
             </div>
             <div class="field">
 
-                <input type="password" required>
+                <input type="password" required id="password" name="password">
                 <label>Password</label>
             </div>
             <div class="content">
                 <br>
                 <div class="pass-link">
-                    <a href="#">Forget your password?</a>
+                    <a href="forgotpass.html">Forget your password?</a>
                 </div>
             </div>
             <div class="field">
-                <input type="submit" value="Login">
+                <button type="button" class="btn">Login</button>
             </div>
             <br>
             <div class="sign-up">
@@ -198,5 +217,20 @@
             </div>
        </form>
     </div>
+    <script>
+        document.querySelector('.btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            let data_user = document.forms['awal']['nama'].value;
+            let data_password = document.forms['awal']['password'].value;
+            
+            if (data_user.trim() === "") {
+                alert("Nama Tidak Boleh Kosong ... !!!");
+            } else if (data_password.trim() === "") {
+                alert("Password Tidak Boleh Kosong ... !!!");
+            } else {
+                window.location.href = "homepage.html";
+            }
+        });
+    </script>
 </body>
 </html>
